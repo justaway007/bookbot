@@ -15,16 +15,10 @@ def count_report(char_dict):
     data_sorted= []
     for char in char_dict:
         data_sorted.append({"char": char, "num":char_dict[char]})
-    return sort_count_report(data_sorted)
-
-def sort_count_report(data):
-    data_sorted = []
-    numbers = []
-    for d in data:
-        numbers.append(d['num'])
-    numbers.sort(reverse=True)
-    for n in numbers:
-        for d in data:
-            if d['num'] == n and d['char'].isalpha():
-                data_sorted.append(d)
+    data_sorted.sort(reverse=True,key=sort_count_report)
     return data_sorted
+
+
+def sort_count_report(d):
+    return d['num']
+    pass
