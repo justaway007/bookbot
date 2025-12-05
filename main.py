@@ -1,6 +1,7 @@
 from stats import word_count
 from stats import character_count
 from stats import count_report
+import sys
 
 def get_book_text(file_path):
     with open(file_path, encoding="utf-8-sig") as f:
@@ -10,7 +11,8 @@ def get_book_text(file_path):
 
 
 def main():
-    book_path = ('books/frankenstein.txt')
+    #book_path = ('books/frankenstein.txt')
+    book_path = sys.argv[1]
     my_book = get_book_text(book_path)
     my_word_count = word_count(my_book)
     my_report = count_report(character_count(my_book))
@@ -28,7 +30,6 @@ Found {my_word_count} total words
 ============= END ===============
 """
     print(report)
-    
 
 
 main()

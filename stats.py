@@ -14,7 +14,8 @@ def character_count(book_string):
 def count_report(char_dict):
     data_sorted= []
     for char in char_dict:
-        data_sorted.append({"char": char, "num":char_dict[char]})
+        if char.isalpha():
+            data_sorted.append({"char": char, "num":char_dict[char]})
     data_sorted.sort(reverse=True,key=sort_count_report)
     return data_sorted
 
